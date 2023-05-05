@@ -1,7 +1,8 @@
-﻿using DataTable.BLL.Services;
+﻿using AutoMapper;
+using DataTable.BLL.Services;
 using DataTable.DAL.Entities;
+using DataTable.WEB.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace DataTable.WEB.Controllers
 {
@@ -10,10 +11,12 @@ namespace DataTable.WEB.Controllers
     public class UserController : ControllerBase
     {
         private static IUserService _userService;
+        private static IMapper _mapper;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -31,25 +34,28 @@ namespace DataTable.WEB.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostUserAsync(User user)
+        public async Task<IActionResult> PostUserAsync(UserModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
+            var user = _mapper.Map<User>(model);
             await _userService.CreateUserAsync(user);
 
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> EditUserAsync(User user, Guid id)
+        public async Task<IActionResult> EditUserAsync(UserModel model, Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
+
+            var user = _mapper.Map<User>(model);
             await _userService.EditUserAsync(user, id);
 
             return Ok();

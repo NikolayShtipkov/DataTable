@@ -1,19 +1,23 @@
 using DataTable.BLL.Services;
 using DataTable.DAL.Data;
 using DataTable.DAL.Repositories;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Inject context
+// Add context
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
-// Inject repositories
+// Add AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// Add repositories
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 
-// Inject services
+// Add services
 builder.Services.AddTransient<IUserService, UserService>();
 
 builder.Services.AddControllers();
