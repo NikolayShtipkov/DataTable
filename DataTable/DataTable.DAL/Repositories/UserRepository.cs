@@ -1,57 +1,33 @@
 ﻿using DataTable.DAL.Data;
 using DataTable.DAL.Entities;
+using DataTable.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataTable.DAL.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        private readonly DatabaseContext _context;
-
-        public UserRepository(DatabaseContext context)
+        public UserRepository(DatabaseContext context) : base(context)
         {
-            _context = context;
         }
 
-        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        public IQueryable<User> GetUsersSortedByNameAsync()
         {
-            return await _context.Users.ToListAsync();
+            return _context.Users.OrderBy(u => u.FirstName)
+                .ThenBy(u => u.LastName);
         }
 
-        public async Task<IEnumerable<User>> GetUsersSortedByNameAsync()
+        public IQueryable<User> GetUsersSortedByEmailAsync()
         {
-            return await _context.Users.OrderBy(u => u.FirstName)
-                .ThenBy(u => u.LastName).ToListAsync();
+            return _context.Users.OrderBy(u => u.Email);
         }
 
-        public async Task<IEnumerable<User>> GetUsersSortedByEmailAsync()
+        public IQueryable<User> GetUsersFilteredByParameter(string parameter)
         {
-            return await _context.Users.OrderBy(u => u.Email).ToListAsync();
-        }
-
-        public async Task<User> GetUserByIdAsync(Guid id)
-        {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
-        }
-
-        public async Task CreateUserAsync(User user)
-        {
-            await _context.Users.AddAsync(user);
-        }
-
-        public void UpdateUser(User user)
-        {
-            _context.Users.Update(user);
-        }
-
-        public void RemoveUser(User user)
-        {
-            _context.Users.Remove(user);
-        }
-
-        public async Task SaveChangesAsync()
-        {
-            await _context.SaveChangesAsync();
+            return _context.Users.Where(u =>
+                u.FirstName.Contains(parameter) ||
+                u.LastName.Contains(parameter) ||
+                u.Email.Contains(parameter));
         }
     }
 }

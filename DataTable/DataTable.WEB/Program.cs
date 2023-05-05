@@ -3,6 +3,7 @@ using DataTable.DAL.Data;
 using DataTable.DAL.Repositories;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using DataTable.DAL.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

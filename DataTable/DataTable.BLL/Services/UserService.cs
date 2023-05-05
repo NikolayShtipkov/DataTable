@@ -1,5 +1,5 @@
 ﻿using DataTable.DAL.Entities;
-using DataTable.DAL.Repositories;
+using DataTable.DAL.Repositories.Interfaces;
 
 namespace DataTable.BLL.Services
 {
@@ -14,22 +14,27 @@ namespace DataTable.BLL.Services
 
         public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
-            return await _userRepository.GetAllUsersAsync();
+            return await _userRepository.GetAllAsync();
         }
 
-        public async Task<IEnumerable<User>> GetUsersSortedByNameAsync()
+        public IEnumerable<User> GetUsersSortedByName()
         {
-            return await _userRepository.GetUsersSortedByNameAsync();
+            return _userRepository.GetUsersSortedByNameAsync();
         }
 
-        public async Task<IEnumerable<User>> GetUsersSortedByEmailAsync()
+        public IEnumerable<User> GetUsersSortedByEmail()
         {
-            return await _userRepository.GetUsersSortedByEmailAsync();
+            return _userRepository.GetUsersSortedByEmailAsync();
+        }
+
+        public IEnumerable<User> GetUsersFilteredByParameter(string parameter)
+        {
+            return _userRepository.GetUsersFilteredByParameter(parameter);
         }
 
         public async Task<User> GetUserByIdAsync(Guid id)
         {
-            var user = await _userRepository.GetUserByIdAsync(id);
+            var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
             {
                 throw new Exception();
@@ -40,13 +45,13 @@ namespace DataTable.BLL.Services
 
         public async Task CreateUserAsync(User user)
         {
-            await _userRepository.CreateUserAsync(user);
+            await _userRepository.InsertAsync(user);
             await _userRepository.SaveChangesAsync();
         }
 
         public async Task EditUserAsync(User editedUser, Guid id)
         {
-            var user = await _userRepository.GetUserByIdAsync(id);
+            var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
             {
                 throw new Exception();
@@ -58,19 +63,19 @@ namespace DataTable.BLL.Services
             user.Role = editedUser.Role;
             user.IsActive = editedUser.IsActive;
 
-            _userRepository.UpdateUser(user);
+            _userRepository.Update(user);
             await _userRepository.SaveChangesAsync();
         }
 
         public async Task DeleteUserAsync(Guid id)
         {
-            var user = await _userRepository.GetUserByIdAsync(id);
+            var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
             {
                 throw new Exception();
             }
 
-            _userRepository.RemoveUser(user);
+            _userRepository.Delete(user);
             await _userRepository.SaveChangesAsync();
         }
     }

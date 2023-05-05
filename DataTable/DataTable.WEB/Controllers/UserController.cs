@@ -26,17 +26,24 @@ namespace DataTable.WEB.Controllers
             return users;
         }
 
-        [HttpGet("/api/Controller/Name")]
-        public async Task<IEnumerable<User>> GetUsersSortedByNameAsync()
+        [HttpGet("/api/User/Name")]
+        public IEnumerable<User> GetUsersSortedByName()
         {
-            var users = await _userService.GetUsersSortedByNameAsync();
+            var users = _userService.GetUsersSortedByName();
             return users;
         }
 
-        [HttpGet("/api/Controller/Email")]
-        public async Task<IEnumerable<User>> GetUsersSortedByEmailAsync()
+        [HttpGet("/api/User/Email")]
+        public IEnumerable<User> GetUsersSortedByEmail()
         {
-            var users = await _userService.GetUsersSortedByEmailAsync();
+            var users =  _userService.GetUsersSortedByEmail();
+            return users;
+        }
+
+        [HttpGet("/api/User/Filter/{parameter}")]
+        public IEnumerable<User> GetUsersFilteredByParameter(string parameter)
+        {
+            var users = _userService.GetUsersFilteredByParameter(parameter);
             return users;
         }
 
