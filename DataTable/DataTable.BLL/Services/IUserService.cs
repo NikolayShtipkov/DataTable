@@ -7,7 +7,7 @@ namespace DataTable.BLL.Services
         Task CreateUserAsync(User user);
         Task DeleteUserAsync(Guid id);
         Task EditUserAsync(User editedUser, Guid id);
-        Task<IEnumerable<User>> GetAllEventsAsync();
-        Task<User> GetEventByIdAsync(Guid id);
+        Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<User> GetUserByIdAsync(Guid id);
     }
 }

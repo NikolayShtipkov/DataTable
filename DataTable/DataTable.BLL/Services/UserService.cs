@@ -12,12 +12,12 @@ namespace DataTable.BLL.Services
             _userRepository = userRepository;
         }
 
-        public async Task<IEnumerable<User>> GetAllEventsAsync()
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
             return await _userRepository.GetAllUsersAsync();
         }
 
-        public async Task<User> GetEventByIdAsync(Guid id)
+        public async Task<User> GetUserByIdAsync(Guid id)
         {
             var user = await _userRepository.GetUserByIdAsync(id);
             if (user == null)

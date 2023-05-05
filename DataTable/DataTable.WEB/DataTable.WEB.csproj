@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DataTable.BLL\DataTable.BLL.csproj" />
     <ProjectReference Include="..\DataTable.DAL\DataTable.DAL.csproj" />
   </ItemGroup>
