@@ -13,12 +13,12 @@ namespace DataTable.DAL.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<User>> GetAllUsers()
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
             return await _context.Users.ToListAsync();
         }
 
-        public async Task<User> GetByIdAsync(Guid id)
+        public async Task<User> GetUserByIdAsync(Guid id)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
         }
@@ -36,6 +36,11 @@ namespace DataTable.DAL.Repositories
         public void RemoveUser(User user)
         {
             _context.Users.Remove(user);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
         }
     }
 }
