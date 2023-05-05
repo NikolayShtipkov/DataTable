@@ -26,6 +26,20 @@ namespace DataTable.WEB.Controllers
             return users;
         }
 
+        [HttpGet("/api/Controller/Name")]
+        public async Task<IEnumerable<User>> GetUsersSortedByNameAsync()
+        {
+            var users = await _userService.GetUsersSortedByNameAsync();
+            return users;
+        }
+
+        [HttpGet("/api/Controller/Email")]
+        public async Task<IEnumerable<User>> GetUsersSortedByEmailAsync()
+        {
+            var users = await _userService.GetUsersSortedByEmailAsync();
+            return users;
+        }
+
         [HttpGet("{id}")]
         public async Task<User> GetUserAsync(Guid id)
         {

@@ -17,6 +17,16 @@ namespace DataTable.BLL.Services
             return await _userRepository.GetAllUsersAsync();
         }
 
+        public async Task<IEnumerable<User>> GetUsersSortedByNameAsync()
+        {
+            return await _userRepository.GetUsersSortedByNameAsync();
+        }
+
+        public async Task<IEnumerable<User>> GetUsersSortedByEmailAsync()
+        {
+            return await _userRepository.GetUsersSortedByEmailAsync();
+        }
+
         public async Task<User> GetUserByIdAsync(Guid id)
         {
             var user = await _userRepository.GetUserByIdAsync(id);

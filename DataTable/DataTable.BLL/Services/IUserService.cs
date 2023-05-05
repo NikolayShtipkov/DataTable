@@ -9,5 +9,7 @@ namespace DataTable.BLL.Services
         Task EditUserAsync(User editedUser, Guid id);
         Task<IEnumerable<User>> GetAllUsersAsync();
         Task<User> GetUserByIdAsync(Guid id);
+        Task<IEnumerable<User>> GetUsersSortedByEmailAsync();
+        Task<IEnumerable<User>> GetUsersSortedByNameAsync();
     }
 }

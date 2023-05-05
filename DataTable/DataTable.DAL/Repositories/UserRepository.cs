@@ -18,6 +18,17 @@ namespace DataTable.DAL.Repositories
             return await _context.Users.ToListAsync();
         }
 
+        public async Task<IEnumerable<User>> GetUsersSortedByNameAsync()
+        {
+            return await _context.Users.OrderBy(u => u.FirstName)
+                .ThenBy(u => u.LastName).ToListAsync();
+        }
+
+        public async Task<IEnumerable<User>> GetUsersSortedByEmailAsync()
+        {
+            return await _context.Users.OrderBy(u => u.Email).ToListAsync();
+        }
+
         public async Task<User> GetUserByIdAsync(Guid id)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
