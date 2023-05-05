@@ -1,4 +1,5 @@
 ﻿using DataTable.DAL.Entities;
+using DataTable.DAL.Enums;
 
 namespace DataTable.BLL.Services
 {
@@ -10,6 +11,8 @@ namespace DataTable.BLL.Services
         Task<IEnumerable<User>> GetAllUsersAsync();
         Task<User> GetUserByIdAsync(Guid id);
         IEnumerable<User> GetUsersFilteredByParameter(string parameter);
+        IEnumerable<User> GetUsersFilteredByRole(int number);
+        IEnumerable<User> GetUsersFilteredByStatus(int number);
         IEnumerable<User> GetUsersSortedByEmail();
         IEnumerable<User> GetUsersSortedByName();
     }

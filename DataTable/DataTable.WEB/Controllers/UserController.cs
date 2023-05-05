@@ -47,6 +47,20 @@ namespace DataTable.WEB.Controllers
             return users;
         }
 
+        [HttpGet("/api/User/Filter/Role/{number}")]
+        public IEnumerable<User> GetUsersFilteredByRole(int number)
+        {
+            var users = _userService.GetUsersFilteredByRole(number);
+            return users;
+        }
+
+        [HttpGet("/api/User/Filter/Status/{number}")]
+        public IEnumerable<User> GetUsersFilteredByStatus(int number)
+        {
+            var users = _userService.GetUsersFilteredByStatus(number);
+            return users;
+        }
+
         [HttpGet("{id}")]
         public async Task<User> GetUserAsync(Guid id)
         {

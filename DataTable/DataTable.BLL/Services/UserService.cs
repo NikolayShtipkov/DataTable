@@ -1,4 +1,5 @@
 ﻿using DataTable.DAL.Entities;
+using DataTable.DAL.Enums;
 using DataTable.DAL.Repositories.Interfaces;
 
 namespace DataTable.BLL.Services
@@ -30,6 +31,18 @@ namespace DataTable.BLL.Services
         public IEnumerable<User> GetUsersFilteredByParameter(string parameter)
         {
             return _userRepository.GetUsersFilteredByParameter(parameter);
+        }
+
+        public IEnumerable<User> GetUsersFilteredByRole(int number)
+        {
+            var role = (Role)number;
+            return _userRepository.GetUsersFilteredByRole(role);
+        }
+
+        public IEnumerable<User> GetUsersFilteredByStatus(int number)
+        {
+            bool isActive = number == 0 ? false : true;
+            return _userRepository.GetUsersFilteredByStatus(isActive);
         }
 
         public async Task<User> GetUserByIdAsync(Guid id)
