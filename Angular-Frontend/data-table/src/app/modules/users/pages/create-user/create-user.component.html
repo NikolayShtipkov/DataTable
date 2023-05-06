@@ -1,12 +1,12 @@
-<div class="container">
-  <br />
+<div>
+  <br/>
 
   <div class="row">
     <div class="col">
       <h3>Create User</h3>
     </div>
     <div class="col text-right">
-      <a routerLink="/users">Back To User List</a>
+      <p-button pRipple routerLink="/users" styleClass="p-button-secondary">Back To User List</p-button>
     </div>
   </div>
   <br />
@@ -46,8 +46,9 @@
         <option [ngValue]="false">Inactive</option>
       </select>
     </div>
+    <br>
 
-    <button type="submit">Create</button>
+    <p-button pRipple type="submit" styleClass="p-button-success">Create</p-button>
   </form>
 
 </div>

@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { MenubarModule } from 'primeng/menubar';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
 import { GetUsersComponent } from './modules/users/pages/get-users/get-users.component';
@@ -28,7 +31,10 @@ import { EditUserComponent } from './modules/users/pages/edit-user/edit-user.com
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    TableModule
+    TableModule,
+    ButtonModule,
+    MenubarModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

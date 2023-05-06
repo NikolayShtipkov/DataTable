@@ -6,7 +6,7 @@
       <h3>Update User</h3>
     </div>
     <div class="col text-right">
-      <a routerLink="/users">Back To User List</a>
+      <p-button pRipple routerLink="/users" styleClass="p-button-secondary">Back To User List</p-button>
     </div>
   </div>
   <br />
@@ -48,9 +48,10 @@
         <option [ngValue]="false">Inactive</option>
       </select>
     </div>
+    <br>
 
-    <button type="submit" [disabled]="!editForm.valid">
+    <p-button pRipple type="submit" [disabled]="!editForm.valid" styleClass="p-button-warning">
       Update
-    </button>
+    </p-button>
   </form>
 </div>
