@@ -29,10 +29,10 @@
             {{ user.email }}
           </td>
           <td>
-            {{ user.role }}
+            {{ roles[user.role] }}
           </td>
           <td>
-            {{ user.isActive }}
+            {{ user.isActive ? 'Active' : 'Inactive' }}
           </td>
           <td>
             <p-button pRipple [routerLink]="['/users/' + user.id + '/edit']" styleClass="p-button-warning">Edit</p-button>

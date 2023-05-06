@@ -10,6 +10,8 @@ import { UserService } from '../../services/user.service';
 export class GetUsersComponent implements OnInit {
   displayUsers: UserResponseModel[] = [];
 
+  roles: string[] = ['Guest', 'Regular', 'Admin'];
+
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
