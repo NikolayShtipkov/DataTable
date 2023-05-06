@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
     <h2>Here are some links to help you start: </h2>
     <ul>
       <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Go to Users</a></h2>
+        <h2><a routerLink="/users">Go To Users</a></h2>
     </ul>
     <router-outlet></router-outlet>
   `,

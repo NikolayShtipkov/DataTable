@@ -1,7 +1,6 @@
 using DataTable.BLL.Services;
 using DataTable.DAL.Data;
 using DataTable.DAL.Repositories;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using DataTable.DAL.Repositories.Interfaces;
 
@@ -34,9 +33,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseCors(x => x
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
-app.UseAuthorization();
+app.UseHttpsRedirection();
 
 app.MapControllers();
 

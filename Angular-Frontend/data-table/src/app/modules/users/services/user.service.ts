@@ -12,14 +12,14 @@ export class UserService {
   constructor(private backendService: BackendService) {}
 
   getAllUsers(): Observable<UserResponseModel[]> {
-    return this.backendService.GETRequest('User');
+    return this.backendService.GETRequest('user');
   }
 
   getUser(id: string): Observable<UserResponseModel> {
-    return this.backendService.GETRequest('User/' + id);
+    return this.backendService.GETRequest('user/' + id);
   }
 
   deleteUser(id: string): Observable<void> {
-    return this.backendService.DELETERequest('User/' + id);
+    return this.backendService.DELETERequest('user/' + id);
   }
 }
