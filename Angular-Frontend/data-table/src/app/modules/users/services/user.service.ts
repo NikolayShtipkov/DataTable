@@ -15,6 +15,22 @@ export class UserService {
     return this.backendService.GETRequest('user');
   }
 
+  getUsersSortedByName(): Observable<UserResponseModel[]> {
+    return this.backendService.GETRequest('user/name');
+  }
+
+  getUsersSortedByEmail(): Observable<UserResponseModel[]> {
+    return this.backendService.GETRequest('user/email');
+  }
+
+  getUsersFilteredByRole(number: Number): Observable<UserResponseModel[]> {
+    return this.backendService.GETRequest('user/filter/role/' + number);
+  }
+
+  getUsersFilteredByStatus(number: Number): Observable<UserResponseModel[]> {
+    return this.backendService.GETRequest('user/filter/status/' + number);
+  }
+
   getUser(id: string): Observable<UserResponseModel> {
     return this.backendService.GETRequest('user/' + id);
   }

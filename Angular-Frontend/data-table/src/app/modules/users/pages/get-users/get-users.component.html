@@ -5,6 +5,33 @@
     <p-button pRipple routerLink="/users/create" styleClass="p-button-success">
       Create New User
     </p-button>
+
+    <p-button pRipple (click)="sortByName()" styleClass="p-button-help">
+      Name
+    </p-button>
+
+    <p-button pRipple (click)="sortByEmail()" styleClass="p-button-help">
+      Email
+    </p-button>
+
+    <select type="number" [(ngModel)]="selectedRole">
+      <option [ngValue]="0">Guest</option>
+      <option [ngValue]="1">Regular</option>
+      <option [ngValue]="2">Admin</option>
+    </select>
+
+    <p-button pRipple (click)="filterByRole(selectedRole)" styleClass="p-button-help">
+      Role
+    </p-button>
+
+    <select type="number" [(ngModel)]="selectedStatus">
+      <option [ngValue]="0">Inactive</option>
+      <option [ngValue]="1">Active</option>
+    </select>
+
+    <p-button pRipple (click)="filterByStatus(selectedStatus)" styleClass="p-button-help">
+      Status
+    </p-button>
   </div>
   <br>
 
