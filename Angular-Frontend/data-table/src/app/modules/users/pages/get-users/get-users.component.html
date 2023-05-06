@@ -2,7 +2,7 @@
   <br />
 
   <div class="col text-right">
-    <a pButton pRipple routerLink="/users/create" class="p-button-success">Create New User</a>
+    <a pButton pRipple routerLink="/users/create">Create New User</a>
   </div>
   <br>
 
@@ -13,6 +13,7 @@
         <th>Email</th>
         <th>Role</th>
         <th>Status</th>
+        <th></th>
       </tr>
     </ng-template>
     <br>
@@ -30,6 +31,9 @@
         </td>
         <td>
           {{ user.isActive }}
+        </td>
+        <td>
+          <a [routerLink]="['/users/' + user.id + '/edit']">Edit</a>
         </td>
       </tr>
     </ng-template>

@@ -26,4 +26,11 @@ export class UserService {
   createUser(userModel: UserRequestModel): Observable<void> {
     return this.backendService.POSTRequest('user', userModel);
   }
+
+  updateUser(
+    id: string,
+    userModel: UserRequestModel
+  ): Observable<UserRequestModel> {
+    return this.backendService.PUTRequest('user/' + id, userModel);
+  }
 }

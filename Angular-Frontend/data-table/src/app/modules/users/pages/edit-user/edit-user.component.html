@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col">
-      <h3>Create User</h3>
+      <h3>Update User</h3>
     </div>
     <div class="col text-right">
       <a routerLink="/users">Back To User List</a>
@@ -11,28 +11,30 @@
   </div>
   <br />
 
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+
+    <div class="form-group">
+      <input formControlName="id" id="id" type="hidden" />
+    </div>
 
     <div class="form-group">
       <label for="firstName">First Name:</label>
-      <input name="firstName" id="firstName" type="text" class="form-control" required
-        [(ngModel)]="userToCreate.firstName" />
+      <input formControlName="firstName" id="firstName" type="text" class="form-control" />
     </div>
 
     <div class="form-group">
       <label for="lastName">Last Name:</label>
-      <input name="lastName" id="lastName" type="text" class="form-control" required
-        [(ngModel)]="userToCreate.lastName" />
+      <input formControlName="lastName" id="lastName" type="text" class="form-control" />
     </div>
 
     <div class="form-group">
       <label for="email">Email:</label>
-      <input name="email" id="email" type="text" class="form-control" required [(ngModel)]="userToCreate.email" />
+      <input formControlName="email" id="email" type="text" class="form-control" />
     </div>
 
     <div class="form-group">
       <label for="role">Role:</label>
-      <select class="form-control" type="number" name="role" id="role" [(ngModel)]="userToCreate.role">
+      <select class="form-control" type="number" formControlName="role" name="role" id="role">
         <option [ngValue]="0">Guest</option>
         <option [ngValue]="1">Regular</option>
         <option [ngValue]="2">Admin</option>
@@ -41,13 +43,14 @@
 
     <div class="form-group">
       <label for="isActive">Status:</label>
-      <select class="form-control" type="number" name="status" id="status" [(ngModel)]="userToCreate.isActive">
+      <select class="form-control" type="number" formControlName="isActive" name="isActive" id="isActive">
         <option [ngValue]="true">Active</option>
         <option [ngValue]="false">Inactive</option>
       </select>
     </div>
 
-    <button type="submit">Create</button>
+    <button type="submit" [disabled]="!editForm.valid">
+      Update
+    </button>
   </form>
-
 </div>
