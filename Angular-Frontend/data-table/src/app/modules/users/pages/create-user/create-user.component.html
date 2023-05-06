@@ -1,0 +1,56 @@
+<div class="container">
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <h3>Create User</h3>
+    </div>
+    <div class="col text-right">
+      <a routerLink="/users" class="btn btn-secondary btn-sm">Back To User List</a>
+    </div>
+  </div>
+  <br />
+
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input name="firstName" id="firstName" type="text"
+              class="form-control" required [(ngModel)]="userToCreate.firstName"/>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input name="lastName" id="lastName" type="text"
+              class="form-control" required [(ngModel)]="userToCreate.lastName"/>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input name="email" id="email" type="text"
+              class="form-control" required [(ngModel)]="userToCreate.email"/>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Role:</label>
+      <select class="form-control"  type="number"
+              name="role" id="role" [(ngModel)]="userToCreate.role" >
+        <option [ngValue]="0">Guest</option>
+        <option [ngValue]="1">Regular</option>
+        <option [ngValue]="2">Admin</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Status:</label>
+      <select class="form-control"  type="number"
+              name="status" id="status" [(ngModel)]="userToCreate.isActive" >
+        <option [ngValue]="true">Active</option>
+        <option [ngValue]="false">Inactive</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit" >Create</button>
+  </form>
+
+</div>

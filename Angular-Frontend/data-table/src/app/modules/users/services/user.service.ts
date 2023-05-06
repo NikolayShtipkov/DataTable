@@ -22,4 +22,8 @@ export class UserService {
   deleteUser(id: string): Observable<void> {
     return this.backendService.DELETERequest('user/' + id);
   }
+
+  createUser(userModel: UserRequestModel): Observable<void> {
+    return this.backendService.POSTRequest('user', userModel);
+  }
 }
