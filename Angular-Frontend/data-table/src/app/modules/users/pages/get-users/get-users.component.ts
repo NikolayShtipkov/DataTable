@@ -18,4 +18,10 @@ export class GetUsersComponent implements OnInit {
       console.log(typeof this.displayUsers[0].role);
     });
   }
+
+  openDialog(id: string) {
+    this.userService.deleteUser(id).subscribe((res) => {
+      this.displayUsers = this.displayUsers.filter((item) => item.id !== id);
+    });
+  }
 }

@@ -14,6 +14,7 @@
         <th>Role</th>
         <th>Status</th>
         <th></th>
+        <th></th>
       </tr>
     </ng-template>
     <br>
@@ -34,6 +35,11 @@
         </td>
         <td>
           <a [routerLink]="['/users/' + user.id + '/edit']">Edit</a>
+        </td>
+        <td>
+          <button type="button" (click)="openDialog(user.id)">
+            Delete
+          </button>
         </td>
       </tr>
     </ng-template>
