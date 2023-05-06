@@ -2,12 +2,14 @@
   <br/>
 
   <div class="center">
-    <p-button pRipple routerLink="/users/create" styleClass="p-button-success">Create New User</p-button>
+    <p-button pRipple routerLink="/users/create" styleClass="p-button-success">
+      Create New User
+    </p-button>
   </div>
   <br>
 
   <div>
-    <p-table [value]="displayUsers" class="center">
+    <p-table [value]="displayUsers" class="center" [paginator]="true" [rows]="10">
       <ng-template pTemplate="header">
         <tr>
           <th>Name</th>
