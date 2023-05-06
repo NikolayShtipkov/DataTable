@@ -106,5 +106,8 @@
       }
     }
   },
-  "defaultProject": "data-table"
+  "defaultProject": "data-table",
+  "cli": {
+    "analytics": false
+  }
 }
