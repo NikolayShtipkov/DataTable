@@ -1,5 +1,4 @@
 ﻿using DataTable.DAL.Entities;
-using DataTable.DAL.Enums;
 
 namespace DataTable.BLL.Services
 {
