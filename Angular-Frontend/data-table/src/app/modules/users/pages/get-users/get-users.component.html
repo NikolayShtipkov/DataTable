@@ -12,12 +12,24 @@
   </div>
   <br />
 
-  <div *ngFor="let user of displayUsers" class="wrapper-users">
-    <div class="user-display">
-      <p>Name: {{user.firstName}} {{user.lastName}}</p>
-      <p>Email: {{user.email}}</p>
-      <br>
-    </div>
-  </div>
+  <!-- <p-table #myTab>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" *ngFor="let user of displayUsers">
+      <tr>
+        <td>
+          {{user.firstName}} {{user.lastName}}
+        </td>
+        <td>
+          {{user.email}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table> -->
 
 </div>
