@@ -31,6 +31,10 @@ export class UserService {
     return this.backendService.GETRequest('user/filter/status/' + number);
   }
 
+  getUsersFilteredByParameter(param: String): Observable<UserResponseModel[]> {
+    return this.backendService.GETRequest('user/filter/' + param);
+  }
+
   getUser(id: string): Observable<UserResponseModel> {
     return this.backendService.GETRequest('user/' + id);
   }

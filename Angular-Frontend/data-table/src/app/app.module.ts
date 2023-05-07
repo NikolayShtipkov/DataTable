@@ -8,6 +8,7 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 
 import { AppComponent } from './app.component';
 import { GetUsersComponent } from './modules/users/pages/get-users/get-users.component';
@@ -34,7 +35,8 @@ import { EditUserComponent } from './modules/users/pages/edit-user/edit-user.com
     TableModule,
     ButtonModule,
     MenubarModule,
-    DropdownModule
+    DropdownModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

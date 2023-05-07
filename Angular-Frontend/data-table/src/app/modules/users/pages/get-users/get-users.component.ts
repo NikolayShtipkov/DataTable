@@ -14,6 +14,7 @@ export class GetUsersComponent implements OnInit {
   roles: string[] = ['Guest', 'Regular', 'Admin'];
   selectedRole: Number = 0;
   selectedStatus: Number = 0;
+  parameter: String = '';
 
   constructor(public userService: UserService) { }
 
@@ -49,6 +50,12 @@ export class GetUsersComponent implements OnInit {
 
   filterByStatus(number: Number) {
     this.userService.getUsersFilteredByStatus(number).subscribe((data: UserResponseModel[]) => {
+      this.displayUsers = data;
+    });
+  }
+
+  filterByParameter(param: String) {
+    this.userService.getUsersFilteredByParameter(param).subscribe((data: UserResponseModel[]) => {
       this.displayUsers = data;
     });
   }

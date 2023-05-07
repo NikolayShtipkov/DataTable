@@ -6,6 +6,8 @@
       Create New User
     </p-button>
 
+    <label>Sort By: </label>
+
     <p-button pRipple (click)="sortByName()" styleClass="p-button-help">
       Name
     </p-button>
@@ -13,6 +15,8 @@
     <p-button pRipple (click)="sortByEmail()" styleClass="p-button-help">
       Email
     </p-button>
+
+    <label>Filter By: </label>
 
     <select type="number" [(ngModel)]="selectedRole">
       <option [ngValue]="0">Guest</option>
@@ -31,6 +35,12 @@
 
     <p-button pRipple (click)="filterByStatus(selectedStatus)" styleClass="p-button-help">
       Status
+    </p-button>
+
+    <label>Search: </label>
+    <input name="parameter" id="parameter" type="text" pInputText [(ngModel)]="parameter" />
+    <p-button pRipple (click)="filterByParameter(parameter)" styleClass="p-button-help">
+      Search
     </p-button>
   </div>
   <br>
