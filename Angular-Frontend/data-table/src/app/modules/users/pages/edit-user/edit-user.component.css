@@ -1,0 +1,7 @@
+p-button {
+  margin: 5px;
+}
+
+label, select, option, h3 {
+  font-family: var(--font-family);
+}

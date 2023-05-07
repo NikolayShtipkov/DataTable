@@ -13,27 +13,27 @@
 
   <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
 
-    <div class="form-group">
+    <div>
       <input formControlName="id" id="id" type="hidden" />
     </div>
 
-    <div class="form-group">
-      <label for="firstName">First Name:</label>
+    <div>
+      <label for="firstName">First Name: </label>
       <input formControlName="firstName" id="firstName" type="text" class="form-control" />
     </div>
 
-    <div class="form-group">
-      <label for="lastName">Last Name:</label>
+    <div>
+      <label for="lastName">Last Name: </label>
       <input formControlName="lastName" id="lastName" type="text" class="form-control" />
     </div>
 
-    <div class="form-group">
-      <label for="email">Email:</label>
+    <div>
+      <label for="email">Email: </label>
       <input formControlName="email" id="email" type="text" class="form-control" />
     </div>
 
-    <div class="form-group">
-      <label for="role">Role:</label>
+    <div>
+      <label for="role">Role: </label>
       <select class="form-control" type="number" formControlName="role" name="role" id="role">
         <option [ngValue]="0">Guest</option>
         <option [ngValue]="1">Regular</option>
@@ -41,8 +41,8 @@
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="isActive">Status:</label>
+    <div>
+      <label for="isActive">Status: </label>
       <select class="form-control" type="number" formControlName="isActive" name="isActive" id="isActive">
         <option [ngValue]="true">Active</option>
         <option [ngValue]="false">Inactive</option>

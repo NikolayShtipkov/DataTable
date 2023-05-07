@@ -1,11 +1,11 @@
 <div>
   <br/>
 
-  <div class="row">
-    <div class="col">
+  <div>
+    <div>
       <h3>Create User</h3>
     </div>
-    <div class="col text-right">
+    <div>
       <p-button pRipple routerLink="/users" styleClass="p-button-secondary">Back To User List</p-button>
     </div>
   </div>
@@ -13,25 +13,25 @@
 
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
 
-    <div class="form-group">
-      <label for="firstName">First Name:</label>
+    <div class="container">
+      <label for="firstName">First Name: </label>
       <input name="firstName" id="firstName" type="text" class="form-control" required
         [(ngModel)]="userToCreate.firstName" />
     </div>
 
-    <div class="form-group">
-      <label for="lastName">Last Name:</label>
+    <div class="container">
+      <label for="lastName">Last Name: </label>
       <input name="lastName" id="lastName" type="text" class="form-control" required
         [(ngModel)]="userToCreate.lastName" />
     </div>
 
-    <div class="form-group">
-      <label for="email">Email:</label>
+    <div class="container">
+      <label for="email">Email: </label>
       <input name="email" id="email" type="text" class="form-control" required [(ngModel)]="userToCreate.email" />
     </div>
 
-    <div class="form-group">
-      <label for="role">Role:</label>
+    <div class="container">
+      <label for="role">Role: </label>
       <select class="form-control" type="number" name="role" id="role" [(ngModel)]="userToCreate.role">
         <option [ngValue]="0">Guest</option>
         <option [ngValue]="1">Regular</option>
@@ -39,8 +39,8 @@
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="isActive">Status:</label>
+    <div class="container">
+      <label for="isActive">Status: </label>
       <select class="form-control" type="number" name="status" id="status" [(ngModel)]="userToCreate.isActive">
         <option [ngValue]="true">Active</option>
         <option [ngValue]="false">Inactive</option>
