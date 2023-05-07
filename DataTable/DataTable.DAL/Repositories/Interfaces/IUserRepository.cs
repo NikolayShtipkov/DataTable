@@ -8,7 +8,7 @@ namespace DataTable.DAL.Repositories.Interfaces
         IQueryable<User> GetUsersFilteredByParameter(string parameter);
         IQueryable<User> GetUsersFilteredByRole(Role role);
         IQueryable<User> GetUsersFilteredByStatus(bool isActive);
-        IQueryable<User> GetUsersSortedByEmailAsync();
-        IQueryable<User> GetUsersSortedByNameAsync();
+        IQueryable<User> GetUsersSortedByEmail();
+        IQueryable<User> GetUsersSortedByName();
     }
 }

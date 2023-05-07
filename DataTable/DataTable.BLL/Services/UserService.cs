@@ -20,12 +20,12 @@ namespace DataTable.BLL.Services
 
         public IEnumerable<User> GetUsersSortedByName()
         {
-            return _userRepository.GetUsersSortedByNameAsync();
+            return _userRepository.GetUsersSortedByName();
         }
 
         public IEnumerable<User> GetUsersSortedByEmail()
         {
-            return _userRepository.GetUsersSortedByEmailAsync();
+            return _userRepository.GetUsersSortedByEmail();
         }
 
         public IEnumerable<User> GetUsersFilteredByParameter(string parameter)
@@ -50,7 +50,7 @@ namespace DataTable.BLL.Services
             var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
             {
-                throw new Exception();
+                throw new Exception("User doesn't exist.");
             }
 
             return user;
@@ -67,7 +67,7 @@ namespace DataTable.BLL.Services
             var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
             {
-                throw new Exception();
+                throw new Exception("User doesn't exist.");
             }
 
             user.FirstName = editedUser.FirstName;
@@ -85,7 +85,7 @@ namespace DataTable.BLL.Services
             var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
             {
-                throw new Exception();
+                throw new Exception("User doesn't exist.");
             }
 
             _userRepository.Delete(user);

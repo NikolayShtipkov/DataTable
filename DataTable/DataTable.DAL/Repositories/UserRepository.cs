@@ -11,13 +11,13 @@ namespace DataTable.DAL.Repositories
         {
         }
 
-        public IQueryable<User> GetUsersSortedByNameAsync()
+        public IQueryable<User> GetUsersSortedByName()
         {
             return _entity.OrderBy(u => u.FirstName)
                 .ThenBy(u => u.LastName);
         }
 
-        public IQueryable<User> GetUsersSortedByEmailAsync()
+        public IQueryable<User> GetUsersSortedByEmail()
         {
             return _entity.OrderBy(u => u.Email);
         }
