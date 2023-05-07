@@ -1,7 +1,7 @@
-p-button {
+p-button, input {
   margin: 5px;
 }
 
-label, select, option, h3 {
+label, select, option, h3, input {
   font-family: var(--font-family);
 }

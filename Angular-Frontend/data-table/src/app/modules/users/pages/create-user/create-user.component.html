@@ -13,35 +13,37 @@
 
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
 
-    <div class="container">
-      <label for="firstName">First Name: </label>
-      <input name="firstName" id="firstName" type="text" class="form-control" required
+    <div class="p-float-label">
+      <label for="firstName"></label>
+      <input pInputText name="firstName" id="firstName" type="text" required
         [(ngModel)]="userToCreate.firstName" />
     </div>
 
-    <div class="container">
-      <label for="lastName">Last Name: </label>
-      <input name="lastName" id="lastName" type="text" class="form-control" required
+    <div class="p-float-label">
+      <label for="lastName"></label>
+      <input pInputText name="lastName" id="lastName" type="text" required
         [(ngModel)]="userToCreate.lastName" />
     </div>
 
-    <div class="container">
-      <label for="email">Email: </label>
-      <input name="email" id="email" type="text" class="form-control" required [(ngModel)]="userToCreate.email" />
+    <div class="p-float-label">
+      <label for="email"></label>
+      <input pInputText name="email" id="email" type="text" required
+        [(ngModel)]="userToCreate.email" />
     </div>
+    <br>
 
-    <div class="container">
+    <div>
       <label for="role">Role: </label>
-      <select class="form-control" type="number" name="role" id="role" [(ngModel)]="userToCreate.role">
+      <select type="number" name="role" id="role" [(ngModel)]="userToCreate.role">
         <option [ngValue]="0">Guest</option>
         <option [ngValue]="1">Regular</option>
         <option [ngValue]="2">Admin</option>
       </select>
     </div>
 
-    <div class="container">
+    <div>
       <label for="isActive">Status: </label>
-      <select class="form-control" type="number" name="status" id="status" [(ngModel)]="userToCreate.isActive">
+      <select type="number" name="status" id="status" [(ngModel)]="userToCreate.isActive">
         <option [ngValue]="true">Active</option>
         <option [ngValue]="false">Inactive</option>
       </select>

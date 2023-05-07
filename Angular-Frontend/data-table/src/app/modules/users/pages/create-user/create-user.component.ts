@@ -15,8 +15,8 @@ export class CreateUserComponent {
   eventModels: UserResponseModel[] = [];
 
   defaultUser: UserRequestModel = {
-    firstName: 'Your',
-    lastName: 'Name',
+    firstName: 'FirstName',
+    lastName: 'LastName',
     email: 'Your@Email.com',
     role: 0,
     isActive: true
