@@ -18,22 +18,23 @@
 
     <label>Filter By: </label>
 
-    <select type="number" [(ngModel)]="selectedRole">
-      <option [ngValue]="0">Guest</option>
-      <option [ngValue]="1">Regular</option>
-      <option [ngValue]="2">Admin</option>
-    </select>
+    <p-dropdown
+      class="input-dropdown"
+      [options]="roles"
+      [(ngModel)]="role">
+    </p-dropdown>
 
-    <p-button pRipple (click)="filterByRole(selectedRole)" styleClass="p-button-help">
+    <p-button pRipple (click)="filterByRole(roles.indexOf(role))" styleClass="p-button-help">
       Role
     </p-button>
 
-    <select type="number" [(ngModel)]="selectedStatus">
-      <option [ngValue]="0">Inactive</option>
-      <option [ngValue]="1">Active</option>
-    </select>
+    <p-dropdown
+      class="input-dropdown"
+      [options]="statuses"
+      [(ngModel)]="status">
+      </p-dropdown>
 
-    <p-button pRipple (click)="filterByStatus(selectedStatus)" styleClass="p-button-help">
+    <p-button pRipple (click)="filterByStatus(statuses.indexOf(status))" styleClass="p-button-help">
       Status
     </p-button>
 

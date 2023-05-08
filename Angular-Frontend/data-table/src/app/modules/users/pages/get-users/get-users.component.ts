@@ -11,8 +11,11 @@ export class GetUsersComponent implements OnInit {
 
   displayUsers: UserResponseModel[] = [];
   roles: string[] = ['Guest', 'Regular', 'Admin'];
-  selectedRole: Number = 0;
-  selectedStatus: Number = 0;
+  role: string = this.roles[0];
+
+  statuses: string[] = ['Inactive', 'Active']
+  status: string = this.statuses[0];
+
   parameter: String = '';
 
   constructor(public userService: UserService) { }
