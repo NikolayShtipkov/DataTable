@@ -1,10 +1,10 @@
-import { Role } from "./Role";
+import { RoleEnum } from "./Role";
 
 export interface UserResponseModel{
   id: string
   firstName: string;
   lastName: string;
   email: string;
-  role: Role;
+  role: RoleEnum;
   isActive: Boolean;
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserResponseModel } from '../../models/UserResponseModel';
 import { UserService } from '../../services/user.service';
-import { Role } from '../../models/Role';
 
 @Component({
   selector: 'app-get-users',
