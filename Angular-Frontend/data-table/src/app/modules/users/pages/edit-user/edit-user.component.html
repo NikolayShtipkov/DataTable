@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col">
-      <h3>Update User</h3>
+      <h3 class="heading">Update User</h3>
     </div>
     <div class="col text-right">
       <p-button pRipple routerLink="/users" styleClass="p-button-secondary">Back To User List</p-button>
@@ -11,46 +11,47 @@
   </div>
   <br />
 
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+  <form class="form edit-form" [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
 
     <div>
       <input formControlName="id" id="id" type="hidden" />
     </div>
 
-    <div>
+    <div class="input-group">
       <label for="firstName">First Name: </label>
       <input pInputText formControlName="firstName" id="firstName" type="text" class="form-control" />
     </div>
 
-    <div>
+    <div class="input-group">
       <label for="lastName">Last Name: </label>
       <input pInputText formControlName="lastName" id="lastName" type="text" class="form-control" />
     </div>
 
-    <div>
+    <div class="input-group">
       <label for="email">Email: </label>
       <input pInputText formControlName="email" id="email" type="text" class="form-control" />
     </div>
 
-    <div>
+    <div class="input-group">
       <label for="role">Role: </label>
-      <select class="form-control" type="number" formControlName="role" name="role" id="role">
-        <option [ngValue]="0">Guest</option>
-        <option [ngValue]="1">Regular</option>
-        <option [ngValue]="2">Admin</option>
-      </select>
+      <p-dropdown
+      formControlName="role"
+        [options]="roles"
+        [(ngModel)]="selectedRole">
+      </p-dropdown>
     </div>
 
-    <div>
+    <div class="input-group">
       <label for="isActive">Status: </label>
-      <select class="form-control" type="number" formControlName="isActive" name="isActive" id="isActive">
-        <option [ngValue]="true">Active</option>
-        <option [ngValue]="false">Inactive</option>
-      </select>
+      <p-dropdown
+      formControlName="isActive"
+        [options]="statuses"
+        [(ngModel)]="selectedStatus">
+      </p-dropdown>
     </div>
     <br>
 
-    <p-button pRipple type="submit" [disabled]="!editForm.valid" styleClass="p-button-warning">
+    <p-button class="action-item" pRipple type="submit" [disabled]="!editForm.valid" styleClass="p-button-warning">
       Update
     </p-button>
   </form>

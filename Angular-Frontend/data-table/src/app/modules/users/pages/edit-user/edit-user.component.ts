@@ -6,6 +6,16 @@ import { UserRequestModel } from '../../models/UserRequestModel';
 import { UserResponseModel } from '../../models/UserResponseModel';
 import { UserService } from '../../services/user.service';
 
+interface Role {
+  label: string;
+  value: number;
+}
+
+interface Status {
+  label: string;
+  value: number;
+}
+
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
@@ -17,6 +27,12 @@ export class EditUserComponent {
   userModels: UserResponseModel[] = [];
   editForm: FormGroup;
   result!: string;
+
+  roles: Role[] = [];
+  selectedRole: Role = this.roles[0];
+
+  statuses: Status[] = [];
+  selectedStatus: Status = this.statuses[0];
 
   constructor(
     public userService: UserService,
@@ -30,12 +46,23 @@ export class EditUserComponent {
       lastName: ['', Validators.required],
       email: ['', Validators.required],
       role: [''],
-      isActive: ['']
+      status: ['']
     });
   }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+
+    this.roles = [
+      { label: 'Guest', value: 0 },
+      { label: 'Regular', value: 1 },
+      { label: 'Admin', value: 2 },
+    ];
+
+    this.statuses = [
+      { label: 'False', value: 0 },
+      { label: 'True', value: 1 },
+    ];
 
     this.userService.getAllUsers().subscribe((data: UserResponseModel[]) => {
       this.userModels = data;

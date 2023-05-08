@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
@@ -35,6 +36,7 @@ import { EditUserComponent } from './modules/users/pages/edit-user/edit-user.com
     TableModule,
     ButtonModule,
     MenubarModule,
+    BrowserAnimationsModule,
     DropdownModule,
     InputTextModule
   ],
