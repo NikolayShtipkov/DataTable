@@ -4,17 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserRequestModel } from '../../models/UserRequestModel';
 import { UserResponseModel } from '../../models/UserResponseModel';
+import { Role, Status } from '../../models/Interfaces';
 import { UserService } from '../../services/user.service';
-
-interface Role {
-  label: string;
-  value: number;
-}
-
-interface Status {
-  label: string;
-  value: number;
-}
 
 @Component({
   selector: 'app-edit-user',
@@ -46,7 +37,7 @@ export class EditUserComponent {
       lastName: ['', Validators.required],
       email: ['', Validators.required],
       role: [''],
-      status: ['']
+      isActive: ['']
     });
   }
 
@@ -60,8 +51,8 @@ export class EditUserComponent {
     ];
 
     this.statuses = [
-      { label: 'False', value: 0 },
-      { label: 'True', value: 1 },
+      { label: 'Inactive', value: false },
+      { label: 'Active', value: true },
     ];
 
     this.userService.getAllUsers().subscribe((data: UserResponseModel[]) => {
