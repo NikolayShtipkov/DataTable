@@ -1,12 +1,54 @@
-p-button, input {
+p-button,
+input {
   margin: 5px;
 }
 
-label, select, option, h3, input {
+label,
+select,
+option,
+h3,
+input {
   font-family: var(--font-family);
 }
 
-.container{
-  width:100%;
-  display:block;
+.container {
+  width: 100%;
+  display: block;
+}
+
+.heading {
+  text-align: center;
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.input-group label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.input-group .input-dropdown {
+  margin: 5px;
+}
+
+.action-item {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }

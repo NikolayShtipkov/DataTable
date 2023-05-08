@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { UserRequestModel } from '../../models/UserRequestModel';
 import { UserResponseModel } from '../../models/UserResponseModel';
+import { Role, Status } from '../../models/Interfaces';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -14,10 +15,14 @@ import { UserService } from '../../services/user.service';
 export class CreateUserComponent {
   eventModels: UserResponseModel[] = [];
 
+  roles: Role[] = [];
+
+  statuses: Status[] = [];
+
   defaultUser: UserRequestModel = {
-    firstName: 'FirstName',
-    lastName: 'LastName',
-    email: 'Your@Email.com',
+    firstName: 'Your First Name',
+    lastName: 'Your Last Name',
+    email: 'example@email.com',
     role: 0,
     isActive: true
   };
@@ -29,7 +34,18 @@ export class CreateUserComponent {
     private router: Router
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.roles = [
+      { label: 'Guest', value: 0 },
+      { label: 'Regular', value: 1 },
+      { label: 'Admin', value: 2 },
+    ];
+
+    this.statuses = [
+      { label: 'Inactive', value: false },
+      { label: 'Active', value: true },
+    ];
+  }
 
   onSubmit(form: NgForm): void{
     if (form.valid) {

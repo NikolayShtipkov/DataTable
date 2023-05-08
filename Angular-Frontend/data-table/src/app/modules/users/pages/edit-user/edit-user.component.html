@@ -1,11 +1,11 @@
 <div class="container">
   <br />
 
-  <div class="row">
-    <div class="col">
+  <div>
+    <div>
       <h3 class="heading">Update User</h3>
     </div>
-    <div class="col text-right">
+    <div>
       <p-button pRipple routerLink="/users" styleClass="p-button-secondary">Back To User List</p-button>
     </div>
   </div>
@@ -36,6 +36,7 @@
       <label for="role">Role: </label>
       <p-dropdown
       formControlName="role"
+        class="input-dropdown"
         [options]="roles"
         [(ngModel)]="selectedRole">
       </p-dropdown>
@@ -45,6 +46,7 @@
       <label for="isActive">Status: </label>
       <p-dropdown
       formControlName="isActive"
+        class="input-dropdown"
         [options]="statuses"
         [(ngModel)]="selectedStatus">
       </p-dropdown>

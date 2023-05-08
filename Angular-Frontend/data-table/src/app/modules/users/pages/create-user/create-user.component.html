@@ -1,56 +1,58 @@
-<div>
+<div class="container">
   <br/>
 
   <div>
     <div>
-      <h3>Create User</h3>
+      <h3 class="heading">Create User</h3>
     </div>
     <div>
-      <p-button pRipple routerLink="/users" styleClass="p-button-secondary">Back To User List</p-button>
+      <p-button class="action-item" pRipple routerLink="/users" styleClass="p-button-secondary">Back To User List</p-button>
     </div>
   </div>
   <br />
 
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form class="form create-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
 
-    <div class="p-float-label">
-      <label for="firstName"></label>
+    <div class="input-group">
+      <label for="firstName">First Name: </label>
       <input pInputText name="firstName" id="firstName" type="text" required
         [(ngModel)]="userToCreate.firstName" />
     </div>
 
-    <div class="p-float-label">
-      <label for="lastName"></label>
+    <div class="input-group">
+      <label for="lastName">Last Name: </label>
       <input pInputText name="lastName" id="lastName" type="text" required
         [(ngModel)]="userToCreate.lastName" />
     </div>
 
-    <div class="p-float-label">
-      <label for="email"></label>
+    <div class="input-group">
+      <label for="email">Email: </label>
       <input pInputText name="email" id="email" type="text" required
         [(ngModel)]="userToCreate.email" />
     </div>
-    <br>
 
-    <div>
+    <div class="input-group">
       <label for="role">Role: </label>
-      <select type="number" name="role" id="role" [(ngModel)]="userToCreate.role">
-        <option [ngValue]="0">Guest</option>
-        <option [ngValue]="1">Regular</option>
-        <option [ngValue]="2">Admin</option>
-      </select>
+      <p-dropdown
+        class="input-dropdown"
+        name="role"
+        [options]="roles"
+        [(ngModel)]="userToCreate.role">
+      </p-dropdown>
     </div>
 
-    <div>
+    <div class="input-group">
       <label for="isActive">Status: </label>
-      <select type="number" name="status" id="status" [(ngModel)]="userToCreate.isActive">
-        <option [ngValue]="true">Active</option>
-        <option [ngValue]="false">Inactive</option>
-      </select>
+      <p-dropdown
+        class="input-dropdown"
+        name="isActive"
+        [options]="statuses"
+        [(ngModel)]="userToCreate.isActive">
+      </p-dropdown>
     </div>
     <br>
 
-    <p-button pRipple type="submit" styleClass="p-button-success">Create</p-button>
+    <p-button class="action-item" pRipple type="submit" styleClass="p-button-success">Create</p-button>
   </form>
 
 </div>
